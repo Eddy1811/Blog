@@ -1,11 +1,12 @@
 <?= "Bienvenue sur le blog" ?>
 <?php
+include '../config/database.php';
 
-$action = filter_input(INPUT_GET,'page',FILTER_SANITIZE_SPECIAL_CHARS);
+$action = filter_input(INPUT_GET,'action',FILTER_SANITIZE_SPECIAL_CHARS);
 $action = $action ?? "Accueil";
 
 
-switch ($action) {
+/*switch ($action) {
     case "Contact" :
         require '../ressources/views/                   AREMPLACER.php';
         break;
@@ -21,6 +22,7 @@ switch ($action) {
     default :
         require '../ressources/views/                   AREMPLACER.php';
 }
+*/
 
 
 
