@@ -7,10 +7,6 @@ $action = $action ?? "Accueil";
 
 
 
-
-
-
-
 switch ($action) {
     /*$case "Contact" :
         require '../ressources/views/                   AREMPLACER.php';
