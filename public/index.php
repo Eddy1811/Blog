@@ -1,4 +1,3 @@
-<?= "Bienvenue sur le blog" ?>
 <?php
 include '../config/database.php';
 

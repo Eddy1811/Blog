@@ -2,10 +2,14 @@
 global $pdo;
 include '../app/persistances/blogPostData.php';
 
+$lastPosts = lastBlogPosts ($pdo);
 
-$lastPosts = lastBlogPosts($pdo);
+var_dump ($lastPosts);
 
-var_dump($lastPosts);
+include '../ressources/views/home.tpl.php';
 
 
-echo 'Hello world';
+
+//$lastPosts = lastBlogPosts($pdo);
+//
+//var_dump($lastPosts);
