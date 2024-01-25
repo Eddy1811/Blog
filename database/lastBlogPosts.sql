@@ -1,0 +1,1 @@
+SELECT title, DateEntry, Pseudo FROM Posts LEFT JOIN Autors ON Autors.id = Posts.Autors_id ORDER BY DateEntry Desc LIMIT 10
