@@ -9,11 +9,12 @@ $action = $action ?? "Accueil";
 switch ($action) {
     /*$case "Contact" :
         require '../ressources/views/                   AREMPLACER.php';
-        break;
-
-    case "Hobby" :
-        require '../ressources/views/                   AREMPLACER.php';
         break;*/
+
+    case "blogpost" :
+        require '../app/controllers/blogPostController.php';
+
+        break;
 
     case "Accueil" :
         require '../app/controllers/homeController.php';

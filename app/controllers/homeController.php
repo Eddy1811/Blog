@@ -1,5 +1,4 @@
 <?php
-global $pdo;
 include '../app/persistances/blogPostData.php';
 
 $lastPosts = lastBlogPosts ($pdo);

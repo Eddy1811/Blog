@@ -11,12 +11,12 @@ if ($lastPosts == null): ?>
 
 <?php else : ?>
 
-    <?php foreach ($lastPosts as $value) : ?>
+    <?php foreach ($lastPosts as  $value) : ?>
 
         <section>
             <header>
                 <article>
-                    <H3><?= $value ["title"] ?></H3>
+                    <H3><a href="/?action=blogpost&id=<?= $value ["id"]?>"> <?= $value ["title"]?></a> </H3>
                 </article>
             </header>
 
