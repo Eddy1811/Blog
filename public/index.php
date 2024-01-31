@@ -22,6 +22,10 @@ switch ($action) {
     case "blogPostModify" :
         require '../app/controllers/blogPostModifyController.php';
         break;
+
+    case "blogPostDelete" :
+        require '../app/controllers/blogPostDeleteController.php';
+        break;
 /*
     default :
         require '../app/controllers/';*/

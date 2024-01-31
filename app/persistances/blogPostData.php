@@ -9,7 +9,7 @@ function lastBlogPosts ($MyPDO){
 
 
 function blogPostById ($MyPDO,$id){
-    $statement = $MyPDO->query("SELECT title, DateEntry, Content, Pseudo 
+    $statement = $MyPDO->query("SELECT Posts.id, title, DateEntry, Content, Pseudo 
 FROM Posts 
 JOIN Autors 
 ON Autors.id = Posts.Autors_id 
@@ -25,15 +25,16 @@ FROM Posts
 JOIN Commentaries
 ON Posts.id = Commentaries.Posts_id
 JOIN Autors
-ON Autors.id = Commentaries.Autors_id");
+ON Autors.id = Commentaries.Autors_id
+WHERE Posts.id = $id");
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row;
 }
 
-function blogPostCreate (PDO $MyPDO, $title, $author, $content) {
+function blogPostCreate (PDO $MyPDO, $title, $content, $author) {
     $statement = $MyPDO->prepare("INSERT INTO Posts (Title,Content,DateEntry,DateExit,Autors_id) 
 VALUES (?,?, Curdate(),DATE_ADD(CURDATE(), INTERVAL 1 MONTH), ?)");
-    $statement -> execute([
+    $statement->execute([
         $title, $content, $author
     ]);
 }
@@ -55,4 +56,11 @@ function blogPostUpdate2($MyPDO, $postid, $title, $content){
     $statement->execute([
         $title, $content, $postid
     ]);
+}
+
+function blogPostDelete ($MyPDO, $postid){
+    $sql = "DELETE FROM Posts WHERE id = '$postid'";
+    // $MyPDO->query($sql);
+    $statement = $MyPDO-> prepare($sql);
+    return $statement->execute();
 }

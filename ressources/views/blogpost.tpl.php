@@ -11,6 +11,8 @@
         <br>
         Auteur : <?= $post ['Pseudo'] ?>
         <br><br><br>
+
+        <?php if (!empty($comment ['Content'])):?>
         Commentaires :
         <br>
         De : <?= $comment ['Pseudo'] ?>
@@ -19,8 +21,14 @@
         <br>
         Posté le : <?= $comment ['Date'] ?>
         <br>
+        <?php endif ?>
     </main>
 
+    <form action="/?action=blogPostDelete&id=<?= $post['id']?>" method="post">
+
+        <input type="submit" value="Supprimer">
+
+    </form>
 
 
 

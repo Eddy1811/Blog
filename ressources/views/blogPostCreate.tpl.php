@@ -31,7 +31,7 @@
 
             <?php foreach ($autorInfo as  $value) : ?>
 
-        <option valeur = "<?= $value["id"] ?>"  > <?= $value ["Pseudo"] ?></option>
+        <option value = "<?= $value["id"] ?>"  > <?= $value ["Pseudo"] ?></option>
 
             <?php endforeach; ?>
 
