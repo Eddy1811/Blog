@@ -7,17 +7,6 @@ function lastBlogPosts ($MyPDO){
     return $row;
 };
 
-//function showPosts ($MyPDO, $id){
-//    $statement = $MyPDO->query("SELECT title, DateEntry, Posts.Content, Commentaries.Content, Pseudo
-//FROM Posts
-//JOIN Commentaries
-//ON Posts.id = Commentaries.Posts_id
-//JOIN Autors
-//ON  Autors.id = Commentaries.Autors_id
-//WHERE Commentaries.id = $id");
-//    $row = $statement->fetchall(PDO::FETCH_ASSOC);
-//    return $row;
-//};
 
 function blogPostById ($MyPDO,$id){
     $statement = $MyPDO->query("SELECT title, DateEntry, Content, Pseudo 
@@ -39,4 +28,31 @@ JOIN Autors
 ON Autors.id = Commentaries.Autors_id");
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row;
+}
+
+function blogPostCreate (PDO $MyPDO, $title, $author, $content) {
+    $statement = $MyPDO->prepare("INSERT INTO Posts (Title,Content,DateEntry,DateExit,Autors_id) 
+VALUES (?,?, Curdate(),DATE_ADD(CURDATE(), INTERVAL 1 MONTH), ?)");
+    $statement -> execute([
+        $title, $content, $author
+    ]);
+}
+
+
+function findauthors ($MyPDO){
+    $statement = $MyPDO->query("SELECT Pseudo, id FROM Autors");
+    $row = $statement->fetchall(PDO::FETCH_ASSOC);
+    return $row;
+}
+
+function blogPostUpdate($MyPDO, $postid, $title, $content){
+    $sql = "UPDATE Posts SET Title = '$title', Content = '$content' WHERE id = $postid";
+    $MyPDO->query($sql);
+}
+function blogPostUpdate2($MyPDO, $postid, $title, $content){
+    $sql = "UPDATE Posts SET Title = ?, Content = ? WHERE id = ?";
+    $statement = $MyPDO->prepare($sql);
+    $statement->execute([
+        $title, $content, $postid
+    ]);
 }

@@ -11,12 +11,12 @@ if ($lastPosts == null): ?>
 
 <?php else : ?>
 
-    <?php foreach ($lastPosts as  $value) : ?>
+    <?php foreach ($lastPosts as $value) : ?>
 
         <section>
             <header>
                 <article>
-                    <H3><a href="/?action=blogpost&id=<?= $value ["id"]?>"> <?= $value ["title"]?></a> </H3>
+                    <H3><a href="/?action=blogpost&id=<?= $value ["id"] ?>"> <?= $value ["title"] ?></a></H3>
                 </article>
             </header>
 
@@ -24,12 +24,19 @@ if ($lastPosts == null): ?>
                 <p>Date d'écriture : <?= $value ["DateEntry"] ?> </p>
             </article>
             <p>Auteur : <?= $value ["Pseudo"] ?> </p>
-            <br><br>
+
         </section>
 
+        <section>
+            <h3><a href="/?action=blogPostModify&id=<?= $value ["id"] ?>"> Modifier cet article </a></h3>
+        </section>
+        <br><br>
 
     <?php endforeach; ?>
 
+    <section>
+        <h3><a href="/?action=Create"> Créer un article </a></h3>
+    </section>
 
     <span> <?php $value ?> </span>
 

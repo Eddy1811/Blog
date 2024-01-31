@@ -7,17 +7,20 @@ $action = $action ?? "Accueil";
 
 
 switch ($action) {
-    /*$case "Contact" :
-        require '../ressources/views/                   AREMPLACER.php';
-        break;*/
+    case "Create" :
+        require '../app/controllers/blogPostCreateController.php';
+        break;
 
     case "blogpost" :
         require '../app/controllers/blogPostController.php';
-
         break;
 
     case "Accueil" :
         require '../app/controllers/homeController.php';
+        break;
+
+    case "blogPostModify" :
+        require '../app/controllers/blogPostModifyController.php';
         break;
 /*
     default :

@@ -45,3 +45,7 @@ sequenceDiagram
     blogPost.tpl.php-->>User: display showPost
 
 ```
+
+
+// CRÉER UN ARTICLE
+
